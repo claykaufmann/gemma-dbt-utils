@@ -3,7 +3,7 @@
           enabled = var("gemma:dates:enabled")
 ) }}
 
-{% if target.type == 'postgres' | as_bool() %}
+{% if target.type == 'postgres' or target.type == 'redshift' | as_bool() %}
 
   WITH dates AS (
 
