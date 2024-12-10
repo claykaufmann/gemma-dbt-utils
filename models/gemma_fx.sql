@@ -10,7 +10,7 @@
  We explicitly check for whether the model is enabled, so that we can trigger an 
  exception if the model is enabled, but an unsupported adapter is used. 
 */
-{% if var("gemma:fx:enabled") and target.type == 'postgres' | as_bool() %}
+{% if var("gemma:fx:enabled") and (target.type == 'postgres' or target.type == 'redshift') | as_bool() %}
 
 WITH rates AS (
 
